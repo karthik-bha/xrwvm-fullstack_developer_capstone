@@ -30,7 +30,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'karthikbhatp-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai']
 
-CSRF_TRUSTED_ORIGINS = ['https://karthikbhatp-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai']
+CSRF_TRUSTED_ORIGINS = [
+    'http://karthikbhatp-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
+    'https://karthikbhatp-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'
+]
+
 
 
 

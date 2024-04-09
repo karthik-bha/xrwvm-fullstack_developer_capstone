@@ -1,11 +1,19 @@
 # Uncomment the following imports before adding the Model code
 
-# from django.db import models
+from django.db import models
 # from django.utils.timezone import now
 # from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 # Create your models here.
+class CarMake(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    # Add any other fields as needed
+
+    def __str__(self):
+        return self.name
+
 
 # <HINT> Create a Car Make model `class CarMake(models.Model)`:
 # - Name
@@ -15,6 +23,22 @@
 
 
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
+class CarModel(models.Model):
+    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
+    dealer_id = models.IntegerField()
+    name = models.CharField(max_length=100)
+    TYPE_CHOICES = [
+        ('Sedan', 'Sedan'),
+        ('SUV', 'SUV'),
+        ('Wagon', 'Wagon'),
+        # Add more choices as needed
+    ]
+    type = models.CharField(max_length=20, choices=TYPE_CHOICES)
+    year = models.DateField()
+    # Add any other fields as needed
+
+    def __str__(self):
+        return f"{self.car_make.name} - {self.name}"
 # - Many-To-One relationship to Car Make model (One Car Make has many
 # Car Models, using ForeignKey field)
 # - Name
